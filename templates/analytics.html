@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="/">Dashboard</a> |
+    <a href="/analytics">Analytics</a>
+</nav>
+<hr>
+
+<h1>Analytics</h1>
+
+<!-- Chart 1 -->
+<h2>Category-wise Distraction Time</h2>
+<canvas id="categoryChart"></canvas>
+
+<!-- Chart 2 -->
+<h2>Daily Distraction Trend</h2>
+<canvas id="dailyChart"></canvas>
+
+<!-- Chart 3 -->
+<h2>Time-slot Distraction Pattern</h2>
+<canvas id="timeSlotChart"></canvas>
+
+<!-- Chart 4 -->
+<h2>Productivity Score Trend</h2>
+<canvas id="productivityChart"></canvas>
+
+<script>
+/* ---------- Chart 1 ---------- */
+const categoryData = [
+    {% for row in category_data %}
+    { label: "{{ row[0] }}", value: {{ row[1] }} },
+    {% endfor %}
+];
+
+new Chart(document.getElementById('categoryChart'), {
+    type: 'bar',
+    data: {
+        labels: categoryData.map(d => d.label),
+        datasets: [{
+            label: 'Minutes',
+            data: categoryData.map(d => d.value)
+        }]
+    }
+});
+
+/* ---------- Chart 2 ---------- */
+const dailyData = [
+    {% for row in daily_data %}
+    { label: "{{ row[0] }}", value: {{ row[1] }} },
+    {% endfor %}
+];
+
+new Chart(document.getElementById('dailyChart'), {
+    type: 'line',
+    data: {
+        labels: dailyData.map(d => d.label),
+        datasets: [{
+            label: 'Minutes',
+            data: dailyData.map(d => d.value),
+            fill: false
+        }]
+    }
+});
+
+/* ---------- Chart 3 ---------- */
+const timeSlotData = [
+    {% for row in time_slot_data %}
+    { label: "{{ row[0] }}", value: {{ row[1] }} },
+    {% endfor %}
+];
+
+new Chart(document.getElementById('timeSlotChart'), {
+    type: 'bar',
+    data: {
+        labels: timeSlotData.map(d => d.label),
+        datasets: [{
+            label: 'Minutes',
+            data: timeSlotData.map(d => d.value)
+        }]
+    }
+});
+// -------- Chart 4: Productivity Score --------
+const productivityData = {{ productivity_data | tojson }};
+
+new Chart(document.getElementById('productivityChart'), {
+    type: 'line',
+    data: {
+        labels: productivityData.map(d => d[0]),
+        datasets: [{
+            label: 'Focus Score',
+            data: productivityData.map(d => d[1]),
+            fill: false
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

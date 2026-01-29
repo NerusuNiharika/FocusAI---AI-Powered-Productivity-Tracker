@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Distraction Detection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Dashboard</a> |
+    <a href="/analytics">Analytics</a>
+</nav>
+<hr>
+
+<h1>Distraction Detection & Productivity Assistant</h1>
+
+<p>
+    This is a personalized productivity web application that tracks distraction data,
+    analyzes focus patterns, and provides AI-based insights to help improve focus.
+</p>
+
+<hr>
+
+<h2>Today’s Overview</h2>
+<p><strong>Total Distractions:</strong> {{ total_count }}</p>
+<p><strong>Total Distraction Time:</strong> {{ total_duration }} minutes</p>
+
+<hr>
+
+<h2>AI Productivity Insight</h2>
+<p>{{ ai_message }}</p>
+
+<hr>
+
+<h2>Talk to AI Assistant</h2>
+<form method="POST">
+    <input type="text" name="user_message" placeholder="How are you feeling today?" required>
+    <button type="submit">Send</button>
+</form>
+
+{% if ai_reply %}
+    <p><strong>AI Response:</strong> {{ ai_reply }}</p>
+{% endif %}
+
+<hr>
+
+<h2>Recent Distraction Records</h2>
+<ul>
+    {% for row in records %}
+        <li>
+            App: {{ row[0] }} |
+            Category: {{ row[1] }} |
+            Duration: {{ row[2] }} minutes
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
