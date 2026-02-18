@@ -18,9 +18,12 @@ def get_all_distractions():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT app_name, category, duration
-        FROM distraction_log
-    """)
+    SELECT app_name, category, duration
+    FROM distraction_log
+    ORDER BY datetime DESC
+    LIMIT 10
+""")
+
 
     data = cursor.fetchall()
     conn.close()

@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html>
-    
 <head>
-    <title>Distraction Detection Dashboard</title>
+    <title>Distraction Detection</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
 <nav>
-    <a href="/">Dashboard</a> |
-    <a href="/analytics">Analytics</a>
+    <div style="color:white;font-weight:700;">FocusAI</div>
+    <div>
+        <a href="/">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+    </div>
 </nav>
-<hr>
 
-<h1>Distraction Detection & Productivity Assistant</h1>
+<div class="hero">
+    <h1>Master Your Focus</h1>
+    <p>AI-powered productivity insights and distraction tracking.</p>
+</div>
 
-<p>
-    This is a personalized productivity web application that tracks distraction data,
-    analyzes focus patterns, and provides AI-based insights to help improve focus.
-</p>
+<div class="container">
 
-<hr>
+    <div class="dashboard-grid">
+        <div class="card">
+            <h2>Total Distractions</h2>
+            <p>{{ total_count }}</p>
+        </div>
 
-<h2>Today’s Overview</h2>
-<p><strong>Total Distractions:</strong> {{ total_count }}</p>
-<p><strong>Total Distraction Time:</strong> {{ total_duration }} minutes</p>
+        <div class="card">
+            <h2>Total Time Lost</h2>
+            <p>{{ total_duration }} minutes</p>
+        </div>
 
-<hr>
+        <div class="card">
+            <h2>AI Insight</h2>
+            <p>{{ ai_message }}</p>
+        </div>
+    </div>
 
-<h2>AI Productivity Insight</h2>
-<p>{{ ai_message }}</p>
+    <div class="card ai-section" id="ai-section">
+        <h2>Talk to AI Assistant</h2>
+        <form method="POST" action="#ai-section">
+            <input type="text" name="user_message" placeholder="How are you feeling today?" required>
+            <button type="submit">Send</button>
+        </form>
 
-<hr>
+        {% if ai_reply %}
+            <p style="margin-top:15px;"><strong>AI:</strong> {{ ai_reply }}</p>
+        {% endif %}
+    </div>
 
-<h2>Talk to AI Assistant</h2>
-<form method="POST">
-    <input type="text" name="user_message" placeholder="How are you feeling today?" required>
-    <button type="submit">Send</button>
-</form>
+    <div class="card" style="margin-top:40px;">
+        <h2>Recent Distraction Records</h2>
+        <ul class="record-list">
+            {% for row in records %}
+                <li>
+                    {{ row[0] }} | {{ row[1] }} | {{ row[2] }} min
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-{% if ai_reply %}
-    <p><strong>AI Response:</strong> {{ ai_reply }}</p>
-{% endif %}
-
-<hr>
-
-<h2>Recent Distraction Records</h2>
-<ul>
-    {% for row in records %}
-        <li>
-            App: {{ row[0] }} |
-            Category: {{ row[1] }} |
-            Duration: {{ row[2] }} minutes
-        </li>
-    {% endfor %}
-</ul>
+</div>
 
 </body>
 </html>

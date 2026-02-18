@@ -1,18 +1,128 @@
+/* ----------------- GLOBAL RESET ----------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 30px;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    min-height: 100vh;
+    color: #111827;
+}
+
+/* ----------------- NAVBAR ----------------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 nav a {
-    margin-right: 10px;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    margin-left: 20px;
 }
 
-h1, h2 {
-    color: #333;
+nav a:hover {
+    opacity: 0.8;
 }
 
-hr {
-    margin: 20px 0;
+/* ----------------- HERO SECTION ----------------- */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ----------------- MAIN CONTAINER ----------------- */
+.container {
+    background: #f9fafb;
+    border-radius: 20px 20px 0 0;
+    padding: 50px 60px;
+    margin-top: 40px;
+    min-height: 70vh;
+}
+
+/* ----------------- DASHBOARD GRID ----------------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4f46e5;
+}
+
+.card p {
+    font-size: 16px;
+}
+
+/* ----------------- FORM ----------------- */
+.ai-section input {
+    padding: 12px;
+    width: 70%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.ai-section button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ai-section button:hover {
+    background: #4338ca;
+}
+
+/* ----------------- RECORD LIST ----------------- */
+.record-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ----------------- ANALYTICS PAGE ----------------- */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.chart-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }

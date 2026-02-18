@@ -7,7 +7,7 @@ from database.db import (
     get_time_slot_summary,
     get_productivity_score
 )
-from ai.advisor import get_ai_message, respond_to_user_message
+from ai.advisor import get_ai_message, respond_to_user_message,generate_analytics_insight
 
 app = Flask(__name__)
 
@@ -35,19 +35,33 @@ def home():
     )
 
 @app.route("/analytics")
+
 def analytics():
     category_data = get_category_summary()
     daily_data = get_daily_summary()
     time_slot_data = get_time_slot_summary()
     productivity_data = get_productivity_score()
 
+    has_data = bool(category_data)
+
+    insights = generate_analytics_insight(
+    category_data,
+    time_slot_data,
+    productivity_data,
+    daily_data
+)
+
+
     return render_template(
-        "analytics.html",
-        category_data=category_data,
-        daily_data=daily_data,
-        time_slot_data=time_slot_data,
-        productivity_data=productivity_data
-    )
+    "analytics.html",
+    category_data=category_data,
+    daily_data=daily_data,
+    time_slot_data=time_slot_data,
+    productivity_data=productivity_data,
+    insights=insights,
+    has_data=has_data
+)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

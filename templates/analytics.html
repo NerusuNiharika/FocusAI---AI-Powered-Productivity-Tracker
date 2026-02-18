@@ -2,105 +2,135 @@
 <html>
 <head>
     <title>Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <nav>
-    <a href="/">Dashboard</a> |
-    <a href="/analytics">Analytics</a>
+    <div style="color:white;font-weight:700;">FocusAI</div>
+    <div>
+        <a href="/">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+    </div>
 </nav>
-<hr>
 
-<h1>Analytics</h1>
+<div class="hero">
+    <h1>Productivity Analytics</h1>
+    <p>Visual insights into your distraction patterns.</p>
+</div>
 
-<!-- Chart 1 -->
-<h2>Category-wise Distraction Time</h2>
-<canvas id="categoryChart"></canvas>
+<div class="container">
 
-<!-- Chart 2 -->
-<h2>Daily Distraction Trend</h2>
-<canvas id="dailyChart"></canvas>
+    <!-- AI Insights Section -->
+    <div class="card" style="margin-bottom:30px;">
+        <h2>AI Insights</h2>
+        <ul>
+            {% for insight in insights %}
+                <li>{{ insight }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<!-- Chart 3 -->
-<h2>Time-slot Distraction Pattern</h2>
-<canvas id="timeSlotChart"></canvas>
+    {% if has_data %}
 
-<!-- Chart 4 -->
-<h2>Productivity Score Trend</h2>
-<canvas id="productivityChart"></canvas>
+    <!-- Charts Grid -->
+    <div class="analytics-grid">
 
-<script>
-/* ---------- Chart 1 ---------- */
-const categoryData = [
-    {% for row in category_data %}
-    { label: "{{ row[0] }}", value: {{ row[1] }} },
-    {% endfor %}
-];
+        <div class="chart-card">
+            <h2>Category-wise Distraction</h2>
+            <canvas id="categoryChart"></canvas>
+        </div>
 
-new Chart(document.getElementById('categoryChart'), {
-    type: 'bar',
-    data: {
-        labels: categoryData.map(d => d.label),
-        datasets: [{
-            label: 'Minutes',
-            data: categoryData.map(d => d.value)
-        }]
-    }
-});
+        <div class="chart-card">
+            <h2>Daily Distraction Trend</h2>
+            <canvas id="dailyChart"></canvas>
+        </div>
 
-/* ---------- Chart 2 ---------- */
-const dailyData = [
-    {% for row in daily_data %}
-    { label: "{{ row[0] }}", value: {{ row[1] }} },
-    {% endfor %}
-];
+        <div class="chart-card">
+            <h2>Time-slot Pattern</h2>
+            <canvas id="timeSlotChart"></canvas>
+        </div>
 
-new Chart(document.getElementById('dailyChart'), {
-    type: 'line',
-    data: {
-        labels: dailyData.map(d => d.label),
-        datasets: [{
-            label: 'Minutes',
-            data: dailyData.map(d => d.value),
-            fill: false
-        }]
-    }
-});
+        <div class="chart-card">
+            <h2>Productivity Score</h2>
+            <canvas id="productivityChart"></canvas>
+        </div>
 
-/* ---------- Chart 3 ---------- */
-const timeSlotData = [
-    {% for row in time_slot_data %}
-    { label: "{{ row[0] }}", value: {{ row[1] }} },
-    {% endfor %}
-];
+    </div>
 
-new Chart(document.getElementById('timeSlotChart'), {
-    type: 'bar',
-    data: {
-        labels: timeSlotData.map(d => d.label),
-        datasets: [{
-            label: 'Minutes',
-            data: timeSlotData.map(d => d.value)
-        }]
-    }
-});
-// -------- Chart 4: Productivity Score --------
-const productivityData = {{ productivity_data | tojson }};
+    <!-- Chart Scripts (Only if data exists) -->
+    <script>
+        const categoryData = {{ category_data | tojson }};
+        const dailyData = {{ daily_data | tojson }};
+        const timeSlotData = {{ time_slot_data | tojson }};
+        const productivityData = {{ productivity_data | tojson }};
 
-new Chart(document.getElementById('productivityChart'), {
-    type: 'line',
-    data: {
-        labels: productivityData.map(d => d[0]),
-        datasets: [{
-            label: 'Focus Score',
-            data: productivityData.map(d => d[1]),
-            fill: false
-        }]
-    }
-});
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'bar',
+            data: {
+                labels: categoryData.map(d => d[0]),
+                datasets: [{
+                    label: 'Minutes',
+                    data: categoryData.map(d => d[1]),
+                    backgroundColor: '#6366f1'
+                }]
+            }
+        });
 
-</script>
+        new Chart(document.getElementById('dailyChart'), {
+            type: 'line',
+            data: {
+                labels: dailyData.map(d => d[0]),
+                datasets: [{
+                    label: 'Minutes',
+                    data: dailyData.map(d => d[1]),
+                    borderColor: '#8b5cf6',
+                    tension: 0.3
+                }]
+            }
+        });
+
+        new Chart(document.getElementById('timeSlotChart'), {
+            type: 'bar',
+            data: {
+                labels: timeSlotData.map(d => d[0]),
+                datasets: [{
+                    label: 'Minutes',
+                    data: timeSlotData.map(d => d[1]),
+                    backgroundColor: '#f59e0b'
+                }]
+            }
+        });
+
+        new Chart(document.getElementById('productivityChart'), {
+            type: 'line',
+            data: {
+                labels: productivityData.map(d => d[0]),
+                datasets: [{
+                    label: 'Focus Score',
+                    data: productivityData.map(d => d[1]),
+                    borderColor: '#10b981',
+                    tension: 0.3
+                }]
+            }
+        });
+    </script>
+
+    {% else %}
+
+    <!-- No Data Message -->
+    <div class="card">
+        <h2>No Data Available</h2>
+        <p>
+            No distraction records found yet. Start tracking your activity
+            to see analytics and AI insights.
+        </p>
+    </div>
+
+    {% endif %}
+
+</div>
 
 </body>
 </html>
