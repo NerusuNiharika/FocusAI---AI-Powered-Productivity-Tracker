@@ -1,201 +1,220 @@
-# 🧠 FocusAI – Distraction Detection & Productivity Analytics System
+# FocusAI - AI-Powered Productivity Tracker
 
-🚧 **Status: Working in Progress (WIP)**  
-This project is actively being improved with enhanced AI insights, dynamic data integration, and future scalability features.
+## Overview
 
----
+FocusAI is an AI-powered productivity tracking application that helps users understand and reduce digital distractions. The system automatically monitors active applications, categorizes activities, records distraction patterns, and generates intelligent productivity insights using Google's Gemini AI.
 
-## 📌 Project Overview
-
-FocusAI is a full-stack productivity analytics system that tracks distraction patterns, analyzes behavioral trends, and generates AI-driven insights to help users improve focus.
-
-The system combines:
-- Backend development (Flask)
-- Database management (SQLite)
-- Data analytics & aggregation
-- Visualization (Chart.js)
-- Rule-based AI insight generation
-
-This project was built as a learning-focused implementation of a structured AI-integrated productivity system.
+The goal of the project is to provide users with actionable feedback about their focus habits through analytics, visualizations, and AI-generated recommendations.
 
 ---
 
-## 🏗️ System Architecture
+## Features
 
+### Activity Tracking
 
-### 🔹 Backend
-- Flask-based routing
-- Modular structure (`database/`, `ai/`, `templates/`)
-- GET/POST request handling
-- Clean separation of logic
+* Monitors active application windows in real time.
+* Detects potentially distracting applications.
+* Records application usage duration automatically.
 
-### 🔹 Database
-- SQLite database (`distraction.db`)
-- Aggregation queries:
-  - Category-wise analysis
-  - Daily trend grouping
-  - Time-slot classification
-  - Productivity scoring
+### Smart Categorization
 
-### 🔹 Analytics & Visualization
-- Category-wise bar chart
-- Daily distraction trend line chart
-- Time-slot pattern analysis
-- Productivity score visualization
+Applications are categorized into:
 
-### 🔹 AI Layer
-- Rule-based productivity assistant
-- Context-aware user interaction
-- Sentiment-based responses
-- Automated analytics interpretation
+* Social Media
+* Entertainment
+* Browsing
+* Development
+* Work
+* Other
 
----
+### Productivity Dashboard
 
-## 📊 Key Features
+* View recent distraction records.
+* Track total distractions.
+* Monitor distraction duration.
+* Interact with an AI productivity assistant.
 
-- 📈 Multi-chart productivity dashboard
-- 🧠 AI-generated behavioral insights
-- 📅 Daily trend analysis
-- 🕒 Time-of-day distraction detection
-- 🧮 Dynamic productivity score calculation
-- ⚠️ Edge-case handling (no-data state)
-- 🎨 Structured dashboard UI
-- 🗂 Modular project architecture
+### AI Productivity Assistant
 
----
+* Powered by Google Gemini API.
+* Provides personalized productivity suggestions.
+* Responds to user queries related to focus and productivity.
 
-## 🛠 Tech Stack
+### Analytics & Insights
 
-| Layer        | Technology Used |
-|-------------|----------------|
-| Backend     | Flask (Python) |
-| Database    | SQLite |
-| Frontend    | HTML, CSS |
-| Charts      | Chart.js |
-| AI Logic    | Rule-based pattern analysis |
+* Category-wise distraction analysis.
+* Daily distraction trends.
+* Time-slot productivity patterns.
+* Productivity score visualization.
+* AI-generated productivity insights.
+
+### Data Storage
+
+* Uses SQLite for lightweight local storage.
+* Automatically maintains distraction logs and analytics data.
 
 ---
 
-## 📂 Project Structure
+## Tech Stack
 
+### Backend
 
-### 🔹 Backend
-- Flask-based routing
-- Modular structure (`database/`, `ai/`, `templates/`)
-- GET/POST request handling
-- Clean separation of logic
+* Python
+* Flask
 
-### 🔹 Database
-- SQLite database (`distraction.db`)
-- Aggregation queries:
-  - Category-wise analysis
-  - Daily trend grouping
-  - Time-slot classification
-  - Productivity scoring
+### Database
 
-### 🔹 Analytics & Visualization
-- Category-wise bar chart
-- Daily distraction trend line chart
-- Time-slot pattern analysis
-- Productivity score visualization
+* SQLite
 
-### 🔹 AI Layer
-- Rule-based productivity assistant
-- Context-aware user interaction
-- Sentiment-based responses
-- Automated analytics interpretation
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Chart.js
+
+### AI Integration
+
+* Google Gemini API
 
 ---
 
-## 📊 Key Features
+## Project Structure
 
-- 📈 Multi-chart productivity dashboard
-- 🧠 AI-generated behavioral insights
-- 📅 Daily trend analysis
-- 🕒 Time-of-day distraction detection
-- 🧮 Dynamic productivity score calculation
-- ⚠️ Edge-case handling (no-data state)
-- 🎨 Structured dashboard UI
-- 🗂 Modular project architecture
-
----
-
-## 🛠 Tech Stack
-
-| Layer        | Technology Used |
-|-------------|----------------|
-| Backend     | Flask (Python) |
-| Database    | SQLite |
-| Frontend    | HTML, CSS |
-| Charts      | Chart.js |
-| AI Logic    | Rule-based pattern analysis |
-
----
-
-## 📂 Project Structure
-
-distraction_detector/
-│
-├── app.py
-├── seed_data.py
-├── distraction.db
-│
-├── database/
-│ └── db.py
+```text
+FocusAI/
 │
 ├── ai/
-│ └── advisor.py
+│   └── advisor.py
+│
+├── database/
+│   └── db.py
+│
+├── tracker/
+│   └── window_tracker.py
 │
 ├── templates/
-│ ├── index.html
-│ └── analytics.html
+│   ├── home.html
+│   ├── index.html
+│   └── analytics.html
 │
-└── static/
-└── css/
-└── style.css
-
-
----
-
-## 🚀 How to Run Locally
-
-1. Clone the repository
-2. Install dependencies:
-3. Run: python app.py
-4. Open browser at: http://127.0.0.1:5000
- 
-To populate sample data: python seed_data.py
-
-
----
-
-## 📈 Future Enhancements
-
-- Real-time distraction tracking integration
-- Dynamic background data updates
-- Multi-user authentication system
-- Cloud deployment
-- Machine learning-based behavior prediction
-- Advanced anomaly detection
-- Enhanced UI/UX improvements
+├── static/
+│   └── css/
+│      └── style.css
+|
+├── screenshots/
+│   ├── home.png
+│   ├── dasboard.png
+|   ├── analytics_1.png
+│   └── analytics_2.png
+|
+├── app.py
+├── requirements.txt
+├── seed_data.py
+└── README.md
+```
 
 ---
 
-## 🎯 Learning Objectives Achieved
+## Screenshots
 
-- Built an end-to-end full-stack system
-- Implemented structured analytics pipeline
-- Integrated AI-driven interpretation layer
-- Applied modular backend architecture
-- Handled real-world edge cases
+### Home Page
+
+![Home Page](screenshots/home.png)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Analytics Dashboard - Part 1
+
+![Analytics 1](screenshots/analytics_1.png)
+
+### Analytics Dashboard - Part 2
+
+![Analytics 2](screenshots/analytics_2.png)
 
 ---
 
-## 👩‍💻 Author
+## Installation
 
-Built as part of continuous learning in:
-- Full-stack development
-- Data analytics
-- AI integration
-- System design thinking
+### Clone Repository
 
+```bash
+git clone <repository-url>
+cd FocusAI
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+### Run Application
+
+```bash
+python app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## How It Works
+
+1. The application tracks the currently active window.
+2. Window titles are categorized into predefined activity groups.
+3. Usage data is stored in SQLite.
+4. Analytics are generated from historical activity data.
+5. Gemini AI analyzes user productivity patterns and provides recommendations.
+6. Interactive charts help visualize distraction trends and productivity behavior.
+
+---
+
+## Future Enhancements
+
+* User Authentication
+* Multi-user Support
+* Weekly Productivity Reports
+* PDF Report Generation
+* Goal Tracking
+* Productivity Streaks
+* Cloud Database Integration
+* Email Productivity Summaries
+
+---
+
+## Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+* Flask Web Development
+* SQLite Database Design
+* AI API Integration
+* Prompt Engineering
+* Data Visualization
+* Application Tracking and Monitoring
+* Building End-to-End AI Applications
+
+---
+## Author
+
+N Sai Niharika
+
+---
+## License
+
+This project is intended for educational and portfolio purposes.
