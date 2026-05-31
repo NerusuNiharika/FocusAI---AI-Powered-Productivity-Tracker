@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>FocusAI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<!-- ---------------- NAVBAR ---------------- -->
+<nav>
+
+    <div class="logo">FocusAI</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/analytics">Analytics</a>
+    </div>
+
+</nav>
+
+<!-- ---------------- HERO SECTION ---------------- -->
+<div class="hero">
+
+    <h1>Master Your Focus</h1>
+
+    <p>
+        FocusAI transforms your digital activity into powerful insights.
+        Track usage, detect distractions, and get AI-driven recommendations
+        to stay productive every day.
+    </p>
+
+    <!-- ---------------- TRACKING BUTTON ---------------- -->
+    <form method="POST">
+
+        {% if tracking_status == "Started" %}
+
+            <button
+                class="stop-btn"
+                type="submit"
+                name="action"
+                value="stop"
+            >
+                Stop Tracking
+            </button>
+
+        {% else %}
+
+            <button
+                class="start-btn"
+                type="submit"
+                name="action"
+                value="start"
+            >
+                Start Tracking Now
+            </button>
+
+        {% endif %}
+
+    </form>
+
+</div>
+
+<!-- ---------------- FEATURES TITLE ---------------- -->
+<h2 class="feature-title">What FocusAI Does</h2>
+
+<!-- ---------------- FEATURES GRID ---------------- -->
+<div class="features">
+
+    <!-- FEATURE 1 -->
+    <div class="feature-card">
+
+        <i data-lucide="monitor"></i>
+
+        <h3>Activity Tracking</h3>
+
+        <p>
+            FocusAI monitors the active window on your system and records
+            application usage. This behavioral data powers productivity
+            analytics and distraction detection.
+        </p>
+
+    </div>
+
+    <!-- FEATURE 2 -->
+    <div class="feature-card">
+
+        <i data-lucide="bar-chart-3"></i>
+
+        <h3>Smart Analytics</h3>
+
+        <p>
+            Analyze distraction patterns using interactive charts,
+            productivity trends, category distributions, and time-slot
+            activity insights.
+        </p>
+
+    </div>
+
+    <!-- FEATURE 3 -->
+    <div class="feature-card">
+
+        <i data-lucide="brain"></i>
+
+        <h3>AI Insights</h3>
+
+        <p>
+            AI-generated productivity insights help identify distraction
+            behaviors and provide personalized focus improvement suggestions.
+        </p>
+
+    </div>
+
+    <!-- FEATURE 4 -->
+    <div class="feature-card">
+
+        <i data-lucide="trending-up"></i>
+
+        <h3>Productivity Trends</h3>
+
+        <p>
+            Discover your most productive time periods and understand
+            how distractions impact your daily workflow and focus levels.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ---------------- SPACING ---------------- -->
+<div style="height: 80px;"></div>
+
+<!-- ---------------- ICONS ---------------- -->
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

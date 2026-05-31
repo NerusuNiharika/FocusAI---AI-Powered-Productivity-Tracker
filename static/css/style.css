@@ -7,9 +7,9 @@
 
 body {
     font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    background: linear-gradient(135deg, #2e3e58, #4f46e5);
     min-height: 100vh;
-    color: #111827;
+    color: #ffffff;
 }
 
 /* ----------------- NAVBAR ----------------- */
@@ -18,41 +18,62 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(46, 44, 44, 0.12);
     backdrop-filter: blur(10px);
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     margin-left: 20px;
 }
 
 nav a:hover {
-    opacity: 0.8;
+    color: #e8f6f6;
 }
 
 /* ----------------- HERO SECTION ----------------- */
 .hero {
     text-align: center;
-    padding: 60px 20px;
+    padding: 160px 20px;
     color: white;
 }
 
 .hero h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .hero p {
+    max-width: 700px;
+    margin: auto;
     font-size: 18px;
+    line-height: 1.6;
     opacity: 0.9;
 }
 
+/* ----------------- BUTTONS ----------------- */
+.start-btn,
+.stop-btn {
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 16px;
+    border: none;
+    background: #6366f1; /* clean purple */
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.start-btn:hover,
+.stop-btn:hover {
+    background: #4f46e5;
+}
 /* ----------------- MAIN CONTAINER ----------------- */
 .container {
-    background: #f9fafb;
+    background: #ffffff;
     border-radius: 20px 20px 0 0;
     padding: 50px 60px;
     margin-top: 40px;
@@ -68,16 +89,17 @@ nav a:hover {
 }
 
 .card {
-    background: white;
+    background: #ffffff;
     padding: 25px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    color: #000;
 }
 
 .card h2 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #4f46e5;
+    color: #2e2e2e;
 }
 
 .card p {
@@ -89,7 +111,7 @@ nav a:hover {
     padding: 12px;
     width: 70%;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #dce4ea;
     margin-right: 10px;
 }
 
@@ -97,20 +119,20 @@ nav a:hover {
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
-    background: #4f46e5;
-    color: white;
+    background: #4f7fb2;
+    color: rgb(7, 7, 7);
     font-weight: 600;
     cursor: pointer;
 }
 
 .ai-section button:hover {
-    background: #4338ca;
+    background: #3d6fa3;
 }
 
 /* ----------------- RECORD LIST ----------------- */
 .record-list li {
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #edf2f7;
 }
 
 /* ----------------- ANALYTICS PAGE ----------------- */
@@ -121,8 +143,85 @@ nav a:hover {
 }
 
 .chart-card {
-    background: white;
+    background: #f7fafc;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ---------------- FEATURES SECTION ---------------- */
+.feature-title {
+    text-align: center;
+    font-size: 34px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ---------- Feature Grid ---------- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+/* ---------- Base Card ---------- */
+.feature-card {
+    background: rgba(255, 255, 255, 0.12); /* single clean color */
+    padding: 35px 32px;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    background: #3730a3;
+}
+
+/* ---------- Icons ---------- */
+.feature-card i {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 18px;
+}
+
+/* ---------- Title ---------- */
+.feature-card h3 {
+    margin-bottom: 14px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ---------- Text ---------- */
+.feature-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        padding: 15px 20px;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
 }
