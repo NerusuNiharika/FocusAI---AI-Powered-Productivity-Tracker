@@ -1,85 +1,213 @@
-# FocusAI - AI-Powered Productivity Tracker
+<div align="center">
 
-## Overview
+# 🎯 FocusAI
 
-FocusAI is an AI-powered productivity tracking application that helps users understand and reduce digital distractions. The system automatically monitors active applications, categorizes activities, records distraction patterns, and generates intelligent productivity insights using Google's Gemini AI.
+### *An AI-powered productivity tracker that monitors digital activity, analyzes distraction patterns, and provides personalized productivity insights.*
 
-The goal of the project is to provide users with actionable feedback about their focus habits through analytics, visualizations, and AI-generated recommendations.
+<p>
+
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge\&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000?style=for-the-badge\&logo=flask)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge\&logo=sqlite)
+![Gemini](https://img.shields.io/badge/Google%20Gemini-AI-orange?style=for-the-badge\&logo=google)
+![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?style=for-the-badge\&logo=javascript)
+![Chart.js](https://img.shields.io/badge/Chart.js-Visualization-FF6384?style=for-the-badge\&logo=chart.js)
+
+</p>
+
+</div>
 
 ---
 
-## Features
+# 📖 Overview
 
-### Activity Tracking
+FocusAI is an AI-powered productivity tracking application designed to help users understand and reduce digital distractions.
+
+The application automatically monitors the user's active application windows, identifies potentially distracting activities, categorizes application usage, and stores activity data for analysis.
+
+Using **Google Gemini AI**, FocusAI analyzes productivity patterns and provides personalized recommendations to help users improve their focus and digital habits.
+
+The platform combines **real-time activity tracking, local data storage, analytics, interactive visualizations, and AI-powered insights** into a single productivity dashboard.
+
+---
+
+# ✨ Features
+
+### 🖥️ Activity Tracking
 
 * Monitors active application windows in real time.
 * Detects potentially distracting applications.
-* Records application usage duration automatically.
+* Automatically records application usage duration.
+* Tracks digital activity in the background.
 
-### Smart Categorization
+### 🧠 Smart Activity Categorization
 
-Applications are categorized into:
+Applications and activities are automatically categorized into:
 
-* Social Media
-* Entertainment
-* Browsing
-* Development
-* Work
-* Other
+* 📱 Social Media
+* 🎬 Entertainment
+* 🌐 Browsing
+* 💻 Development
+* 💼 Work
+* 📦 Other
 
-### Productivity Dashboard
+### 📊 Productivity Dashboard
 
 * View recent distraction records.
-* Track total distractions.
+* Track total number of distractions.
 * Monitor distraction duration.
-* Interact with an AI productivity assistant.
+* View productivity statistics.
+* Interact with the AI productivity assistant.
 
-### AI Productivity Assistant
+### 🤖 AI Productivity Assistant
 
 * Powered by Google Gemini API.
-* Provides personalized productivity suggestions.
-* Responds to user queries related to focus and productivity.
+* Provides personalized productivity recommendations.
+* Answers user questions related to focus and productivity.
+* Analyzes activity patterns to generate actionable suggestions.
 
-### Analytics & Insights
+### 📈 Analytics & Insights
 
 * Category-wise distraction analysis.
 * Daily distraction trends.
 * Time-slot productivity patterns.
 * Productivity score visualization.
 * AI-generated productivity insights.
+* Interactive charts powered by Chart.js.
 
-### Data Storage
+### 💾 Data Storage
 
 * Uses SQLite for lightweight local storage.
-* Automatically maintains distraction logs and analytics data.
+* Automatically maintains activity and distraction logs.
+* Stores historical data for analytics and trend analysis.
 
 ---
 
-## Tech Stack
+# 🏗️ System Architecture
 
-### Backend
+<p align="center">
+  <img src="screenshots/architecture.png" width="900">
+</p>
 
-* Python
-* Flask
+FocusAI follows a lightweight end-to-end architecture where the activity tracker continuously monitors the active window, processes and categorizes the activity, and stores the resulting data in SQLite.
 
-### Database
-
-* SQLite
-
-### Frontend
-
-* HTML
-* CSS
-* JavaScript
-* Chart.js
-
-### AI Integration
-
-* Google Gemini API
+The Flask backend retrieves this information to generate analytics and serves the productivity dashboard. Google Gemini is integrated as the AI layer to analyze productivity patterns and generate personalized recommendations.
 
 ---
 
-## Project Structure
+# 🔄 How FocusAI Works
+
+<p align="center">
+  <img src="screenshots/workflow.png" width="900">
+</p>
+
+The application follows this workflow:
+
+1. 🖥️ The application detects the currently active window.
+2. 🔍 The window title/application is analyzed.
+3. 🧠 The activity is assigned to a predefined category.
+4. ⏱️ Usage and distraction duration are calculated.
+5. 💾 Activity information is stored in SQLite.
+6. 📊 Historical data is processed to generate analytics.
+7. 📈 Interactive charts visualize productivity and distraction patterns.
+8. 🤖 Gemini AI analyzes the productivity data.
+9. 💡 Personalized recommendations and productivity insights are presented to the user.
+
+---
+
+# 🛠️ Tech Stack
+
+| Category                   | Technologies             |
+| -------------------------- | ------------------------ |
+| **Programming Language**   | Python                   |
+| **Backend**                | Flask                    |
+| **Database**               | SQLite                   |
+| **Frontend**               | HTML, CSS, JavaScript    |
+| **Visualization**          | Chart.js                 |
+| **AI Integration**         | Google Gemini API        |
+| **Activity Tracking**      | Active Window Monitoring |
+| **Environment Management** | Python dotenv            |
+
+---
+
+# 📸 Application Preview
+
+## 🏠 Home Page
+
+<p align="center">
+  <img src="screenshots/home.png" width="900">
+</p>
+
+---
+
+## 📊 Productivity Dashboard
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="900">
+</p>
+
+---
+
+## 📈 Analytics Dashboard — Part 1
+
+<p align="center">
+  <img src="screenshots/analytics_1.png" width="900">
+</p>
+
+---
+
+## 📈 Analytics Dashboard — Part 2
+
+<p align="center">
+  <img src="screenshots/analytics_2.png" width="900">
+</p>
+
+---
+
+# ⚙️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd FocusAI
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+Replace `your_gemini_api_key` with your Google Gemini API key.
+
+---
+
+# ▶️ Running the Project
+
+Start the Flask application:
+
+```bash
+python app.py
+```
+
+The application will be available at:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+# 📂 Project Structure
 
 ```text
 FocusAI/
@@ -100,14 +228,16 @@ FocusAI/
 │
 ├── static/
 │   └── css/
-│      └── style.css
-|
+│       └── style.css
+│
 ├── screenshots/
+│   ├── architecture.png
+│   ├── workflow.png
 │   ├── home.png
-│   ├── dasboard.png
-|   ├── analytics_1.png
+│   ├── dashboard.png
+│   ├── analytics_1.png
 │   └── analytics_2.png
-|
+│
 ├── app.py
 ├── requirements.txt
 ├── seed_data.py
@@ -116,88 +246,22 @@ FocusAI/
 
 ---
 
-## Screenshots
+# 🚀 Future Enhancements
 
-### Home Page
-
-![Home Page](screenshots/home.png)
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Analytics Dashboard - Part 1
-
-![Analytics 1](screenshots/analytics_1.png)
-
-### Analytics Dashboard - Part 2
-
-![Analytics 2](screenshots/analytics_2.png)
+* 🔐 User Authentication
+* 👥 Multi-user Support
+* 📅 Weekly Productivity Reports
+* 📄 PDF Productivity Report Generation
+* 🎯 Goal Tracking
+* 🔥 Productivity Streaks
+* ☁️ Cloud Database Integration
+* 📧 Email Productivity Summaries
+* 📱 Mobile Productivity Dashboard
+* 🧠 Advanced AI-based Productivity Recommendations
 
 ---
 
-## Installation
-
-### Clone Repository
-
-```bash
-git clone <repository-url>
-cd FocusAI
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Configure Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-### Run Application
-
-```bash
-python app.py
-```
-
-Open:
-
-```text
-http://127.0.0.1:5000
-```
-
----
-
-## How It Works
-
-1. The application tracks the currently active window.
-2. Window titles are categorized into predefined activity groups.
-3. Usage data is stored in SQLite.
-4. Analytics are generated from historical activity data.
-5. Gemini AI analyzes user productivity patterns and provides recommendations.
-6. Interactive charts help visualize distraction trends and productivity behavior.
-
----
-
-## Future Enhancements
-
-* User Authentication
-* Multi-user Support
-* Weekly Productivity Reports
-* PDF Report Generation
-* Goal Tracking
-* Productivity Streaks
-* Cloud Database Integration
-* Email Productivity Summaries
-
----
-
-## Learning Outcomes
+# 🎓 Learning Outcomes
 
 Through this project, I gained practical experience in:
 
@@ -206,15 +270,19 @@ Through this project, I gained practical experience in:
 * AI API Integration
 * Prompt Engineering
 * Data Visualization
-* Application Tracking and Monitoring
+* Active Application Tracking
+* Productivity Analytics
+* Backend and Frontend Integration
 * Building End-to-End AI Applications
 
 ---
-## Author
 
-N Sai Niharika
+# 👩‍💻 Author
+
+**N Sai Niharika**
 
 ---
-## License
+
+# 📄 License
 
 This project is intended for educational and portfolio purposes.
